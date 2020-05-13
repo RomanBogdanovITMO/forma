@@ -18,7 +18,7 @@ public class zayav implements List {
     private String avto;
     private String bank;
     private String card;
-    private String limit;
+    private String lm;
     private JTextField SumKr;
     private JTextField SrokKr;
     private JTextField Surname;
@@ -1272,11 +1272,12 @@ public class zayav implements List {
                             SecondName.getText(), BirthDate.getText(), BirthPlace.getText(), SerNum.getText(), Num.getText(), PassDate.getText(), Organ.getText(),
                             Index.getText(), City.getText(), Street.getText(), House.getText(), Corp.getText(), Year.getText(), Phone.getText(),
                             Mobile.getText(), Children.getText(), ne18.getText(), Prof.getText(), SrokRab.getText(), kukuha, rabota, AdressRab.getText(),
-                            kv, dom, avto, bank, card, limit, t1.getText(),
+                            kv, dom, avto, bank, card, lm, t1.getText(),
                             t2.getText(), t3.getText(), t4.getText(), t5.getText(), t6.getText(), t7.getText(),
                             t8.getText(), t9.getText(), t10.getText(), t11.getText(), t12.getText(),
                             t13.getText(), t14.getText(), t15.getText(), t16.getText(), t17.getText(), t18.getText(),
                             t19.getText(), t20.getText(), t21.getText(), t22.getText(), t23.getText(), t24.getText()));
+                    System.out.println(place);
                     db dbServ = new db();
                     dbServ.create(place);
                     Menu ab = new Menu();
@@ -1614,12 +1615,12 @@ public class zayav implements List {
                 if (N.isSelected()) {
                     Y.setEnabled(false);
 
-                    limit = "Net";
+                    lm = "Net";
 
                 } else {
                     Y.setEnabled(true);
 
-                    limit = "";
+                    lm = "";
                 }
             }
         });
@@ -1628,11 +1629,11 @@ public class zayav implements List {
             public void actionPerformed(ActionEvent e) {
                 if (Y.isSelected()) {
                     N.setEnabled(false);
-                    limit = "Est";
+                    lm = "Est";
 
                 } else {
                     N.setEnabled(true);
-                    limit = "";
+                    lm = "";
                 }
             }
         });

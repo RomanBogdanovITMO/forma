@@ -48,7 +48,7 @@ public class Lst {
 		objects.get(i).setAvto(place.getAvto());
 		objects.get(i).setBank(place.getBank());
 		objects.get(i).setCard(place.getCard());
-		objects.get(i).setLimit(place.getLimit());
+		objects.get(i).setLmP(place.getLmP());
 		objects.get(i).sett1(place.gett1());
 		objects.get(i).sett2(place.gett2());
 		objects.get(i).sett3(place.gett3());
@@ -186,7 +186,7 @@ public class Lst {
 		objects.get(i).setCard(card);
 	}
 	public void setLimit(int i, String limit) {
-		objects.get(i).setLimit(limit);
+		objects.get(i).setLmP(limit);
 	}
 	public void sett1(int i, String t1) {
 		objects.get(i).sett1(t1);
@@ -377,7 +377,7 @@ public class Lst {
 		return objects.get(i).getCard();
 	}
 	public String getLimit(int i){
-		return objects.get(i).getLimit();
+		return objects.get(i).getLmP();
 	}
 	public String gett1(int i){
 		return objects.get(i).gett1();

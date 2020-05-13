@@ -1,7 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -9,7 +6,7 @@ import java.util.ArrayList;
 public class Place {
 
 	@javax.persistence.Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id;
 
 	public long getId() {
@@ -57,7 +54,7 @@ public class Place {
 	private String avto;
 	private String bank;
 	private String card;
-	private String limit;
+	private String lmP;
     private String t1;
     private String t2;
     private String t3;
@@ -88,7 +85,7 @@ public class Place {
 	Place(String Ru, String pol, String grazh, String strahpol, String adrsov, String sempol, String SumKred, String SrokKred, String Surnam, String Nam,
 		  String SecondNam, String BirthDat, String BirthPlace, String SerNu, String Nu, String PassDat, String Org, String Ind, String Cit, String Stree,
 		  String Hous, String Cor, String Yea, String Phon, String Mobil, String Childre, String n18, String Pro, String SrokRa, String kukuha,
-		  String rabota, String Adrrab, String kv, String dom, String avto, String bank, String card, String limit, String t1, String t2, String t3, String t4,
+		  String rabota, String Adrrab, String kv, String dom, String avto, String bank, String card, String lmpt, String t1, String t2, String t3, String t4,
 		  String t5, String t6, String t7, String t8, String t9, String t10, String t11, String t12, String t13, String t14, String t15, String t16,
 		  String t17, String t18, String t19, String t20, String t21, String t22, String t23, String t24){
 		
@@ -128,7 +125,7 @@ public class Place {
 		this.setAvto(avto);
 		this.setBank(bank);
 		this.setCard(card);
-		this.setLimit(limit);
+		this.setLmP(lmpt);
 		this.sett1(t1);
 		this.sett2(t2);
 		this.sett3(t3);
@@ -522,11 +519,80 @@ public class Place {
 	public void setCard(String card) {
 		this.card = card;
 	}
-	public String getLimit() {
-		return limit;
+	public String getLmP() {
+		return lmP;
 	}
-	public void setLimit(String limit) {
-		this.limit = limit;
+	public void setLmP(String lmP) {
+		this.lmP = lmP;
 	}
 	public ArrayList<Place> objects = new ArrayList<Place>();
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "Id=" + Id +
+                ", pol='" + pol + '\'' +
+                ", Ru='" + Ru + '\'' +
+                ", grazh='" + grazh + '\'' +
+                ", strahpol='" + strahpol + '\'' +
+                ", adrsov='" + adrsov + '\'' +
+                ", sempol='" + sempol + '\'' +
+                ", SumKred='" + SumKred + '\'' +
+                ", SrokKred='" + SrokKred + '\'' +
+                ", Surnam='" + Surnam + '\'' +
+                ", Nam='" + Nam + '\'' +
+                ", SecondNam='" + SecondNam + '\'' +
+                ", BirthDat='" + BirthDat + '\'' +
+                ", BirthPlace='" + BirthPlace + '\'' +
+                ", SerNu='" + SerNu + '\'' +
+                ", Nu='" + Nu + '\'' +
+                ", PassDat='" + PassDat + '\'' +
+                ", Org='" + Org + '\'' +
+                ", Ind='" + Ind + '\'' +
+                ", Cit='" + Cit + '\'' +
+                ", Stree='" + Stree + '\'' +
+                ", Hous='" + Hous + '\'' +
+                ", Cor='" + Cor + '\'' +
+                ", Yea='" + Yea + '\'' +
+                ", Phon='" + Phon + '\'' +
+                ", Mobil='" + Mobil + '\'' +
+                ", Childre='" + Childre + '\'' +
+                ", n18='" + n18 + '\'' +
+                ", Pro='" + Pro + '\'' +
+                ", SrokRa='" + SrokRa + '\'' +
+                ", kukuha='" + kukuha + '\'' +
+                ", rabota='" + rabota + '\'' +
+                ", Adrrab='" + Adrrab + '\'' +
+                ", kv='" + kv + '\'' +
+                ", dom='" + dom + '\'' +
+                ", avto='" + avto + '\'' +
+                ", bank='" + bank + '\'' +
+                ", card='" + card + '\'' +
+                ", limit='" + lmP + '\'' +
+                ", t1='" + t1 + '\'' +
+                ", t2='" + t2 + '\'' +
+                ", t3='" + t3 + '\'' +
+                ", t4='" + t4 + '\'' +
+                ", t5='" + t5 + '\'' +
+                ", t6='" + t6 + '\'' +
+                ", t7='" + t7 + '\'' +
+                ", t8='" + t8 + '\'' +
+                ", t9='" + t9 + '\'' +
+                ", t10='" + t10 + '\'' +
+                ", t11='" + t11 + '\'' +
+                ", t12='" + t12 + '\'' +
+                ", t13='" + t13 + '\'' +
+                ", t14='" + t14 + '\'' +
+                ", t15='" + t15 + '\'' +
+                ", t16='" + t16 + '\'' +
+                ", t17='" + t17 + '\'' +
+                ", t18='" + t18 + '\'' +
+                ", t19='" + t19 + '\'' +
+                ", t20='" + t20 + '\'' +
+                ", t21='" + t21 + '\'' +
+                ", t22='" + t22 + '\'' +
+                ", t23='" + t23 + '\'' +
+                ", t24='" + t24 + '\'' +
+                '}';
+    }
 }
