@@ -1193,7 +1193,7 @@ public class zayav implements List {
         btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 10));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                CoefDuran coefDuran = new CoefDuran();
                 kukuha = (String) comboBox.getSelectedItem();
                 bank = (String) comboBox_1.getSelectedItem();
                 card = (String) comboBox_2.getSelectedItem();
@@ -1201,22 +1201,26 @@ public class zayav implements List {
                 if (pol != null) {
                     if (pol.equals("ZHenskij"))
                         q = q + 0.4;
+                    coefDuran.setDuran(q);
                 }
 
 
                 if (bank != null && bank != "Ne imeetsya") {
                     q = q + 0.45;
+                    coefDuran.setDuran(q);
                 }
 
 
                 if (Year.getText().isEmpty()) {
-
                     q = q + 0.0;
+                    coefDuran.setDuran(q);
                 } else {
                     if ((Double.parseDouble(Year.getText()) * 0.042) < 0.42) {
                         q = q + (Double.parseDouble(Year.getText()) * 0.042);
+                        coefDuran.setDuran(q);
                     } else {
                         q = q + 0.42;
+                        coefDuran.setDuran(q);
                     }
                 }
 
@@ -1224,42 +1228,52 @@ public class zayav implements List {
                 if (BirthDate.getText().isEmpty()) {
 
                     q = q + 0.0;
+                    coefDuran.setDuran(q);
 
                 } else {
                     if ((Double.parseDouble(BirthDate.getText()) > 20)) {
                         if (((Double.parseDouble(BirthDate.getText()) - 20) * 0.1) <= 0.3) {
                             q = q + ((Double.parseDouble(BirthDate.getText()) - 20) * 0.1);
+                            coefDuran.setDuran(q);
                         } else {
                             q = q + 0.3;
+                            coefDuran.setDuran(q);
                         }
                     }
                 }
 
                 if (SrokRab.getText().isEmpty()) {
                     q = q + 0.0;
+                    coefDuran.setDuran(q);
                 } else {
                     q = q + (Double.parseDouble(SrokRab.getText()) * 0.059);
+                    coefDuran.setDuran(q);
                 }
 
                 if (kukuha != null) {
                     if (kukuha.equals("Metallurgiya") || kukuha.equals("Logistika") || kukuha.equals("Transport") || kukuha.equals("Stroitelstvo") || kukuha.equals("Neftegazovaya promyshlennost"))
                         q = q + 0.0;
+                    coefDuran.setDuran(q);
                 } else {
                     q = q + 0.55;
+                    coefDuran.setDuran(q);
                 }
 
                 if (q != 0.0) {
                     label_69.setText(q + "");
+                    coefDuran.setDuran(q);
                 }
 
                 if (kv != null) {
                     if (kv.equals("Edinolichnaya sobstvennost") || dom.equals("Edinolichnaya sobstvennost") || avto.equals("Edinolichnaya sobstvennost"))
                         q = q + 0.35;
+                    coefDuran.setDuran(q);
                 }
 
                 if (strahpol != null) {
                     if (strahpol.equals("Imeyu"))
                         q = q + 0.19;
+                    coefDuran.setDuran(q);
                 }
 
 
@@ -1278,8 +1292,10 @@ public class zayav implements List {
                             t13.getText(), t14.getText(), t15.getText(), t16.getText(), t17.getText(), t18.getText(),
                             t19.getText(), t20.getText(), t21.getText(), t22.getText(), t23.getText(), t24.getText()));
                     System.out.println(place);
+                    System.out.println(coefDuran);
                     db dbServ = new db();
                     dbServ.create(place);
+                    dbServ.createCoefDurant(coefDuran);
                     Menu ab = new Menu();
                     ab.main(null);
                     frame.dispose();

@@ -62,6 +62,8 @@ public class db {
                 .configure("hiber.xml");
         Metadata metadata = new MetadataSources(createServiceRegistry(configuration))
                 .addAnnotatedClass(Place.class)
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(CoefDuran.class)
                 .getMetadataBuilder()
                 .build();
         sessionFactory = metadata.getSessionFactoryBuilder().build();
@@ -80,6 +82,24 @@ public class db {
                 session.beginTransaction();
                 session.save(place);
                 session.getTransaction().commit();
+
+        }
+    }
+
+    public void createUser(User user) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+
+        }
+    }
+
+    public void createCoefDurant(CoefDuran coefDuran) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.save(coefDuran);
+            session.getTransaction().commit();
 
         }
     }
